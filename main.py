@@ -1,5 +1,5 @@
 import sys, signal
-from re import search as search_for_regex
+from re import search as regex
 
 
 # Prompt a client
@@ -23,7 +23,7 @@ def prompt(file_writer):
 
 # validate email
 def email(em):
-    match = search_for_regex(r'[\w.-]+@[\w.-]+.\w+', em)
+    match = regex(r'[\w.-]+@[\w.-]+.\w+', em)
     if match:
         return True
     else:
