@@ -1,4 +1,4 @@
-import sys
+import sys, signal
 from re import search as search_for_regex
 
 
@@ -63,4 +63,12 @@ def end(file_writer):
 
 # Boiler Plate
 if __name__=='__main__':
+    # Handle potential ^C's
+    def sigint_handler(signal, frame):
+        sys.stdout.write('\nCaught ^C, please do not do that.\n')
+    signal.signal(signal.SIGINT, sigint_handler)
     begin()
+
+
+
+
